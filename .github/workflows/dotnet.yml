@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         with:
           name: android-ci-build
-          path: src/MauiBeach/bin/Release/net7.0-android/*Signed.a*
+          path: src/uiPin/bin/Release/net7.0-android/*Signed.a*
 
   build-windows:
     runs-on: windows-2022
@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         with:
           name: windows-ci-build
-          path: src/MauiBeach/bin/Release/net7.0-windows*/**/MauiBeach*.msix
+          path: src/uiPin/bin/Release/net7.0-windows*/**/uiPin*.msix
 
 
     build-ios:
@@ -118,5 +118,5 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         with:
           name: ios-ci-build
-          path: src/MauiBeach/bin/Release/net6.0-ios/**/*.app/
+          path: src/uiPin/bin/Release/net7.0-ios/**/*.app/
 
