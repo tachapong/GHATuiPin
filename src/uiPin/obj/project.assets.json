@@ -24019,11 +24019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tatae999\\Desktop\\New folder\\testGitHupAction\\uiPin\\uiPin\\uiPin.csproj",
+      "projectUniqueName": "C:\\Users\\Tatae999\\Desktop\\New folder\\GHATuiPin\\src\\uiPin\\uiPin.csproj",
       "projectName": "uiPin",
-      "projectPath": "C:\\Users\\Tatae999\\Desktop\\New folder\\testGitHupAction\\uiPin\\uiPin\\uiPin.csproj",
+      "projectPath": "C:\\Users\\Tatae999\\Desktop\\New folder\\GHATuiPin\\src\\uiPin\\uiPin.csproj",
       "packagesPath": "C:\\Users\\Tatae999\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tatae999\\Desktop\\New folder\\testGitHupAction\\uiPin\\uiPin\\obj\\",
+      "outputPath": "C:\\Users\\Tatae999\\Desktop\\New folder\\GHATuiPin\\src\\uiPin\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
