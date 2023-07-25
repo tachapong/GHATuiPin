@@ -47,7 +47,7 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
       - name: Build MAUI Android
-        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net6.0-android --no-restore
+        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-android --no-restore
 
       - name: Upload Android Artifact
         uses: actions/upload-artifact@v2.3.1
