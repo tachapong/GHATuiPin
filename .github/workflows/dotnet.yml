@@ -20,9 +20,9 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true       # Disable sending .NET CLI telemetry
 
 jobs:
-  build-windows:
-    runs-on: windows-2022
-    name: Windows Build
+ build-ios:
+    runs-on: macos-11
+    name: iOS Build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,26 +33,34 @@ jobs:
           dotnet-version: 7.0.x
           include-prerelease: true
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.1
-        with:
-          vs-prerelease: true
-
       - name: Install MAUI Workloads
         run: |
+          dotnet workload install ios --ignore-failed-sources
           dotnet workload install maui --ignore-failed-sources
 
       - name: Restore Dependencies
         run: dotnet restore src/uiPin/uiPin.csproj
 
-      - name: Build MAUI Windows
-        run: msbuild src/uiPin/uiPin.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041 /p:GenerateAppxPackageOnBuild=true
+      - name: Build MAUI iOS
+        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore
 
-      - name: Upload Windows Artifact
+      - name: Upload iOS Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
-          name: windows-ci-build
-          path: src/uiPin/bin/Release/net7.0-windows*/**/uiPin*.msix
+          name: ios-ci-build
+          path: src/uiPin/bin/Release/net7.0-ios/**/*.app/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
