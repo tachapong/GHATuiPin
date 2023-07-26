@@ -32,6 +32,9 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
     <PlatformTarget>arm64</PlatformTarget>
+    <ProvisioningType>manual</ProvisioningType>
+    <CodesignKey>iPhone Distribution: Teerachai Laothong (KP6AXAXNQD)</CodesignKey>
+    <CodesignProvision>ManaFailFast2023AdHoc</CodesignProvision>
   </PropertyGroup>
 
   <ItemGroup>
