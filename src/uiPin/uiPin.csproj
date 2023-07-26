@@ -15,8 +15,8 @@
     <ApplicationTitle>uiPin</ApplicationTitle>
 
     <!-- App Identifier -->
-    <ApplicationId>com.companyname.uipin</ApplicationId>
-    <ApplicationIdGuid>f112b80b-eb57-4ae8-8e58-f4fe5d78d5b7</ApplicationIdGuid>
+    <ApplicationId>com.companyname.mauiaction</ApplicationId>
+    <ApplicationIdGuid>2EF6162E-0601-4C31-9137-3E2E2D2A2DC9</ApplicationIdGuid>
 
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -36,6 +36,7 @@
     <CodesignKey>iPhone Distribution: Teerachai Laothong (KP6AXAXNQD)</CodesignKey>
     <CodesignProvision>ManaFailFast2023AdHoc</CodesignProvision>
   </PropertyGroup>
+
 
   <ItemGroup>
     <!-- App Icon -->
