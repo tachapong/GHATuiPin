@@ -21,7 +21,7 @@ env:
 
 jobs:
  build-ios:
-    runs-on: macos-15
+    runs-on: macos-11
     name: iOS Build
     steps:
       - name: Checkout
