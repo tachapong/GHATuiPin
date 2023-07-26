@@ -30,7 +30,7 @@ jobs:
     name: Sign binary
     uses: lando/code-sign-action@v2
     with:
-      file: .github/workflows/ios.yml
+      file: https://github.com/tachapong/GHATuiPin/settings/secrets/actions
       certificate-data: ${{ secrets.APPLE_CERT_DATA }}
       certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
       apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
