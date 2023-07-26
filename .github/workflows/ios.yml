@@ -30,7 +30,6 @@ jobs:
 - name: Prepare signing
   uses: ngeri/prepare-signing@v1.0.2
   with:
-    appStoreConnectPrivateKey: ${{ secrets.appStoreConnectPrivateKey }}
     keychainName: Teerachai Laothong (KP6AXAXNQD)
 
       - name: Setup .NET 7
