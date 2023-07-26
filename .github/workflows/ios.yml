@@ -21,7 +21,7 @@ env:
 
 jobs:
  build-ios:
-    runs-on: macos-11
+    runs-on: macos-15
     name: iOS Build
     steps:
       - name: Checkout
@@ -42,7 +42,7 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
       - name: Build MAUI iOS
-        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore
+        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
 
       - name: Upload iOS Artifact
         uses: actions/upload-artifact@v2.3.1
