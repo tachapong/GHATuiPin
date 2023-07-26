@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      # - '**/*.md'
+      - '**/*.md'
       - '**/*.gitignore'
       - '**/*.gitattributes'
   pull_request:
@@ -26,6 +26,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Sign binary
+        uses: lando/code-sign-action@v2
 
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
