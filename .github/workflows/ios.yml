@@ -28,9 +28,9 @@ jobs:
         uses: actions/checkout@v2
 
     name: Sign binary
-    uses: tachapong/GHATuiPin
+    uses: tachapong/GHATuiPin/
     with:
-      file: settings/secrets/actions
+      file: settings/environments
       certificate-data: ${{ secrets.APPLE_CERT_DATA }}
       certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
       apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
