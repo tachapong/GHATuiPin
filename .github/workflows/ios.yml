@@ -27,9 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Sign binary
-      #   uses: lando/code-sign-action@v2
-
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
         with:
@@ -45,47 +42,13 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
       - name: Build MAUI iOS
-        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net6.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
-   
-      - name: Upload iOS Artifact
-        uses: actions/upload-artifact@v2.3.1
-        with:
-          name: ios-ci-build
-          path: src/uiPin/bin/Release/net6.0-ios/**/*.app/
-
-
-           build-ios:
-    runs-on: macos-11
-    name: iOS Build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup .NET 6
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 6.0.x
-          include-prerelease: true
-
-      - name: Install MAUI Workloads
-        run: |
-          dotnet workload install ios --ignore-failed-sources
-          dotnet workload install maui --ignore-failed-sources
-
-      - name: Restore Dependencies
-        run: dotnet restore src/MauiBeach/MauiBeach.csproj
-
-      - name: Build MAUI iOS
-        run: dotnet build src/MauiBeach/MauiBeach.csproj -c Release -f net6.0-ios --no-restore
+        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore
 
       - name: Upload iOS Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
           name: ios-ci-build
-          path: src/MauiBeach/bin/Release/net6.0-ios/**/*.app/
-
-
-          
+          path: src/uiPin/bin/Release/net7.0-ios/**/*.app/
 
 
 
