@@ -25,16 +25,15 @@ jobs:
     name: iOS Build
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       # - name: Sign binary
       #   uses: lando/code-sign-action@v2
 
-      - name: Setup .NET 7
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@4d4a70f4a5b2a5a5329f13be4ac933f2c9206ac0
         with:
-          dotnet-version: 7.0.x
-          include-prerelease: true
+          dotnet-version: 6.0.x
 
       - name: Install MAUI Workloads
         run: |
@@ -45,13 +44,42 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
       - name: Build MAUI iOS
-        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
+        run: dotnet build src/uiPin/uiPin.csproj -c Release -f net6.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
    
       - name: Upload iOS Artifact
-        uses: actions/upload-artifact@v2.3.1
-        with:
+         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+         with:
           name: ios-ci-build
-          path: src/uiPin/bin/Release/net7.0-ios/**/*.app/
+          path: src/uiPin/bin/Release/net6.0-ios/**/*.app/
+
+
+    #        build-ios:
+    # runs-on: macos-12
+    # name: iOS Build
+    # steps:
+
+    #   - name: Checkout
+    #     uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+    #   - name: Setup .NET 6
+    #     uses: actions/setup-dotnet@4d4a70f4a5b2a5a5329f13be4ac933f2c9206ac0
+    #     with:
+    #       dotnet-version: 6.0.x
+
+    #   - name: Install MAUI Workload
+    #     run: dotnet workload install maui --ignore-failed-sources
+
+    #   - name: Restore Dependencies
+    #     run: dotnet restore src/MauiBeach/MauiBeach.csproj
+
+    #   - name: Build MAUI iOS
+    #     run: dotnet build src/MauiBeach/MauiBeach.csproj -c Release -f net6.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
+
+    #   - name: Upload iOS Artifact
+    #     uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+    #     with:
+    #       name: mauibeach-ios-ci-build
+    #       path: src/MauiBeach/bin/Release/net6.0-ios/iossimulator-x64/**/*.app
 
 
 
