@@ -29,7 +29,8 @@ jobs:
 
       - name: Sign binary
         uses: lando/code-sign-action@v2
-        
+        with:
+          file: C:\Users\Tatae999\Desktop\New folder\GHATuiPin\src\uiPin
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
         with:
