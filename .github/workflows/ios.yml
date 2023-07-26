@@ -31,6 +31,8 @@ jobs:
         uses: lando/code-sign-action@v2
         with:
           file: C:\Users\Tatae999\Desktop\New folder\GHATuiPin\src\uiPin
+           certificate-data: Teerachai Laothong (KP6AXAXNQD)
+           
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
         with:
