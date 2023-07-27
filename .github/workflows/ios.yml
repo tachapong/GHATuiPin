@@ -27,13 +27,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-    # name: Sign binary
-    # uses: ./
-    # with:
-    #   file: "tachapong/GHATuiPin"
-    #   certificate-data: ${{ secrets.APPLE_CERT_DATA }}
-    #   certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
-    #   apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
+    name: Sign binary
+    uses: tachapong/GHATuiPin@v2
+    with:
+      certificate-data: ${{ secrets.APPLE_CERT_DATA }}
+      certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+      apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
 
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
