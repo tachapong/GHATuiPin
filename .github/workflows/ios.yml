@@ -43,11 +43,12 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
     name: Sign binary
+    uses: DOTNET_CLI_TELEMETRY_OPTOUT
     with:
       certificate-data: ${{ secrets.APPLE_CERT_DATA }}
       certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
       apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
-      
+
       - name: Build MAUI iOS
         run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
 
