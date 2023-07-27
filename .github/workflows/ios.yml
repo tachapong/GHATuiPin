@@ -43,7 +43,7 @@ jobs:
         run: dotnet restore src/uiPin/uiPin.csproj
 
     name: Sign binary
-    uses: DOTNET_CLI_TELEMETRY_OPTOUT
+    uses: actions/Artifact/v2
     with:
       certificate-data: ${{ secrets.APPLE_CERT_DATA }}
       certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
