@@ -27,12 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-    name: Sign binary
-    uses: tachapong/GHATuiPin@v2
-    with:
-      certificate-data: ${{ secrets.APPLE_CERT_DATA }}
-      certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
-      apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
 
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
@@ -48,6 +42,12 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore src/uiPin/uiPin.csproj
 
+    name: Sign binary
+    with:
+      certificate-data: ${{ secrets.APPLE_CERT_DATA }}
+      certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+      apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
+      
       - name: Build MAUI iOS
         run: dotnet build src/uiPin/uiPin.csproj -c Release -f net7.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
 
