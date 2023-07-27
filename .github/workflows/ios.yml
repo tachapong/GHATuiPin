@@ -23,17 +23,38 @@ jobs:
  build-ios:
     runs-on: macos-13
     name: iOS Build
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Sign binary
-        uses:  @tachapong/GHATuiPin
+      # - name: Sign binary
+      #   uses:  @tachapong/GHATuiPin
+      #   with:
+      #     file: settings/secrets/actions
+      #     certificate-data: ${{ secrets.APPLE_CERT_DATA }}
+      #     certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+      #     apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
+
+
+      - name: setup ios certificates
+        uses: apple-actions/import-codesign-certs@v1
         with:
-          file: settings/secrets/actions
-          certificate-data: ${{ secrets.APPLE_CERT_DATA }}
-          certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
-          apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
+          p12-file-base64: ${{ secrets.CERTIFICATER_12 }}
+          P12-password: ${{ secrets.CERTIFICATER_12_PASSWOWD }}
+          keychain: github-actions-xamarin
+          keychain-password: ''
+
+      - name: Setup ios Provisioning Profiles
+        uses: apple-actions/download-provisioning-profiles@v1
+        with: 
+          bundle-id: ''
+          profile-type: 'IOS_APP_ADHOC'
+          issue-id: ${{ secrets.APPSTORE_ISSUE_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+
 
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v1
