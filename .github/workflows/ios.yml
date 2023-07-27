@@ -45,7 +45,6 @@ jobs:
     name: Sign binary
     uses: actions/Artifact/v2
     with:
-      certificate-data: ${{ secrets.APPLE_CERT_DATA }}
       certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
       apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
 
