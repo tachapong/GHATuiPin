@@ -30,6 +30,7 @@ jobs:
       - name: Sign binary
         uses: tachapong/GHATuiPin
         with:
+          file: settings/secrets/actions
           certificate-data: ${{ secrets.APPLE_CERT_DATA }}
           certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
           apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
