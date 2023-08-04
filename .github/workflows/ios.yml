@@ -24,35 +24,35 @@ jobs:
     runs-on: macos-13
     name: iOS Build
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v2
 
-      # - name: Sign binary
-      #   uses:  @tachapong/GHATuiPin
-      #   with:
-      #     file: settings/secrets/actions
-      #     certificate-data: ${{ secrets.APPLE_CERT_DATA }}
-      #     certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
-      #     apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
+    #   # - name: Sign binary
+    #   #   uses:  @tachapong/GHATuiPin
+    #   #   with:
+    #   #     file: settings/secrets/actions
+    #   #     certificate-data: ${{ secrets.APPLE_CERT_DATA }}
+    #   #     certificate-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+    #   #     apple-team-id: ${{ secrets.APPLE_TEAM_ID }}
 
 
-      - name: setup ios certificates
-        uses: apple-actions/import-codesign-certs@v1
-        with:
-          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
-          P12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
-          keychain: github-actions-xamarin
-          keychain-password: ''
+    #   - name: setup ios certificates
+    #     uses: apple-actions/import-codesign-certs@v1
+    #     with:
+    #       p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+    #       P12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+    #       keychain: github-actions-xamarin
+    #       keychain-password: ''
 
-      - name: Setup ios Provisioning Profiles
-        uses: apple-actions/download-provisioning-profiles@v1
-        with: 
-          bundle-id: ''
-          profile-type: 'IOS_APP_ADHOC'
-          issue-id: ${{ secrets.APPSTORE_ISSUE_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+    #   - name: Setup ios Provisioning Profiles
+    #     uses: apple-actions/download-provisioning-profiles@v1
+    #     with: 
+    #       bundle-id: ''
+    #       profile-type: 'IOS_APP_ADHOC'
+    #       issue-id: ${{ secrets.APPSTORE_ISSUE_ID }}
+    #       api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+    #       api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
 
 
